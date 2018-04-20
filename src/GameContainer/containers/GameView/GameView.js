@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import styles from './GameView.module.css'
+import Cat from '../../components/Cat/Cat'
 
 import { getCatImage } from './GameView.actions'
 
@@ -12,8 +13,7 @@ class GameViewComponent extends Component {
   render() {
     return (
       <div className={styles.gameview}>
-        Gameview
-        <img src={this.props.catUrl} alt="Here should be cat"/>
+        <Cat imageUrl={this.props.catUrl} />
       </div>
     );
   }

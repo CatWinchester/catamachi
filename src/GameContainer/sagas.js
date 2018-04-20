@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects'
+import { call, put, takeEvery, } from 'redux-saga/effects'
 import convert from 'xml-js';
 
 function getCatImageApi () {
@@ -6,7 +6,6 @@ function getCatImageApi () {
 }
 
 function* getCatImage() {
-
   const response = yield call(getCatImageApi)
   const dataXml = yield response.text()
   const data2json = JSON.parse(convert.xml2json(dataXml, { compact: true }))
