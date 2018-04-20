@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import styles from './GameView.module.css'
 
 import { getCatImage } from './GameView.actions'
@@ -11,7 +10,6 @@ class GameViewComponent extends Component {
   }
 
   render() {
-    const { store } = this.context
     return (
       <div className={styles.gameview}>
         Gameview
@@ -22,7 +20,6 @@ class GameViewComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state.setCatImage)
   return {
     catUrl: state.setCatImage.catImage
   }
@@ -31,10 +28,6 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => ({
   requestCatImage: () => dispatch(getCatImage())
 })
-
-GameViewComponent.contextTypes = {
-  store: PropTypes.object
-}
 
 const GameView = connect(
   mapStateToProps,
