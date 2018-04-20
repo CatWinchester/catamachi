@@ -4,7 +4,7 @@ import {
   GET_CAT_IMAGE_FAILURE
 } from './GameView.actions'
 
-export function catImage (state = {
+export function setCatImage (state = {
   catImage: ""
 }, action) {
   switch(action.type){

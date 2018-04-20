@@ -1,8 +1,8 @@
 import { combineReducers } from 'redux'
-import { catImage } from './containers/GameView/GameView.reducers'
+import { setCatImage } from './containers/GameView/GameView.reducers'
 
 const rootReducer = combineReducers({
-  catImage
+  setCatImage
 });
 
 export default rootReducer

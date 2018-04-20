@@ -1,7 +1,19 @@
-import { put, takeEvery, all } from 'redux-saga/effects'
+import { call, put, takeEvery, all } from 'redux-saga/effects'
+import convert from 'xml-js';
+
+function getCatImageApi () {
+  return fetch('http://thecatapi.com/api/images/get?format=xml&results_per_page=1')
+}
 
 function* getCatImage() {
-  console.log('sagaXat')
+
+  const response = yield call(getCatImageApi)
+  const dataXml = yield response.text()
+  const data2json = JSON.parse(convert.xml2json(dataXml, { compact: true }))
+
+  const url = data2json.response.data.images.image.url._text
+
+  yield put({ type: 'GET_CAT_IMAGE_SUCCESS', catImage: url})
 }
 
 export default function* rootSaga() {
