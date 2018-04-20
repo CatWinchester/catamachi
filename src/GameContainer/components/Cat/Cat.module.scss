@@ -1,0 +1,9 @@
+.cat {
+  &>img {
+    display: block;
+    border-radius: 50%;
+    border: 10px solid #ff0;
+    width: 100px;
+    height: 100px;
+  }
+}
