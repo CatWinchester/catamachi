@@ -15,6 +15,10 @@ function* getCatImage() {
   yield put({ type: 'GET_CAT_IMAGE_SUCCESS', catImage: url})
 }
 
+function getFoodImages() {
+    
+}
+
 export default function* rootSaga() {
   yield takeEvery('GET_CAT_IMAGE', getCatImage)
 }

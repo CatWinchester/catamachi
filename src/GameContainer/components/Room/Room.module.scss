@@ -1,4 +1,32 @@
 .room {
-  width: 200px;
-  height: 200px;
+  width: 400px;
+  height: 300px;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+  display: grid;
+}
+
+.kitchen {
+  // display: inline-flex;
+  background-image: url('http://www.johnmoylesbuilder.com/uploads/2/9/4/5/2945280/4915026.jpg?880');
+  // justify-content: end;
+}
+
+.bedroom {
+  background-image: url(
+    'https://media.istockphoto.com/vectors/children-room-graphic-black-white-interior-sketch-illustration-vector-vector-id656884928'
+  );
+}
+
+.refrigirator {
+  display: flex;
+  justify-content: center;
+  align-self: flex-end;
+}
+
+.food {
+  width:40px;
+  &>img{
+    width:100%;
+  }
 }

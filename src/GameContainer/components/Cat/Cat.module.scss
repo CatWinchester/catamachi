@@ -1,9 +1,10 @@
 .cat {
+  justify-content: center;
+  display: flex;
   &>img {
     display: block;
     border-radius: 50%;
     border: 10px solid #f00;
-    height: auto;
     width: auto;
     max-width: 200px;
     max-height: 200px;
