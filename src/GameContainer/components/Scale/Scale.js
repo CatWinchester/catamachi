@@ -4,7 +4,10 @@ import styles from './Scale.module.scss'
 
 const Scale = (props) => {
   return <div className={styles.scale}>
-    {props.type}
+    <h3>
+      {props.type}
+    </h3>
+    {props.amount}%
   </div>
 }
 

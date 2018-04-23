@@ -22,11 +22,7 @@ const Food = (props) => {
 }
 
 Food.propTypes = {
-  type: PropTypes.oneOf([
-    'tomato',
-    'pork',
-    'chicken'
-  ])
+  type: PropTypes.string.isRequired
 }
 
 export default Food

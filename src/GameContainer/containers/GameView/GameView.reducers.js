@@ -3,9 +3,32 @@ import {
   GET_CAT_IMAGE_FAILURE
 } from './GameView.actions'
 
-export function setCatImage (state = {
-  catImage: ""
-}, action) {
+const initialState = {
+  catImage: "",
+  catName: "Noname",
+  catNeeds: {
+    kitchen: {
+      hunger: 50,
+      avialableFood: [
+        {
+          name: 'tomato',
+          amount: 4
+        }, {
+          name: 'bacon',
+          amount: 1
+        }, {
+          name: 'chicken',
+          amount: 2
+        }
+      ]
+    },
+    bedroom: {
+      awakeness: 30
+    }
+  }
+}
+
+export function setCatImage (state = initialState, action) {
   switch(action.type){
     case GET_CAT_IMAGE_SUCCESS:
       return Object.assign({}, state, {

@@ -16,23 +16,10 @@ const Kitchen = (props) => {
 }
 
 const Room = (props) => {
-  const { type } = props;
-
-  var currentFood = [
-    {
-      name: 'tomato',
-      amount: 4
-    }, {
-      name: 'pork',
-      amount: 1
-    }, {
-      name: 'chicken',
-      amount: 2
-    }
-  ]
+  const { type, food } = props;
 
   return <div className={`${styles.room} ${styles[type]}`}>
-    {type==='kitchen' && <Kitchen food={currentFood} />}
+    {type==='kitchen' && <Kitchen food={food} />}
   </div>
 }
 
