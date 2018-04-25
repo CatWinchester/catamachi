@@ -13,7 +13,7 @@ class GameViewComponent extends Component {
   }
 
   render() {
-    const { catUrl, kitchen, bedroom } = this.props;
+    const { catUrl, kitchen, bedroom, catName } = this.props;
 
     return (
       <div className={styles.gameview}>
@@ -22,7 +22,7 @@ class GameViewComponent extends Component {
           <Room type="bedroom" />
         </div>
 
-        <Cat imageUrl={catUrl} />
+        <Cat imageUrl={catUrl} name={catName}/>
 
         <div className={styles.scales}>
           <Scale type="hunger" amount={kitchen.hunger}/>
@@ -33,10 +33,10 @@ class GameViewComponent extends Component {
   }
 }
 
-
 const mapStateToProps = (state) => {
   return {
     catUrl: state.setCatImage.catImage,
+    catName: state.setCatImage.catName,
     kitchen: state.setCatImage.catNeeds.kitchen,
     bedroom: state.setCatImage.catNeeds.bedroom,
   }

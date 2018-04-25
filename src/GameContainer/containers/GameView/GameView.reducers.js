@@ -2,10 +2,10 @@ import {
   GET_CAT_IMAGE_SUCCESS,
   GET_CAT_IMAGE_FAILURE
 } from './GameView.actions'
-
+import catNames from 'cat-names'
 const initialState = {
   catImage: "",
-  catName: "Noname",
+  catName: catNames.random(),
   catNeeds: {
     kitchen: {
       hunger: 50,

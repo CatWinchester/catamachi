@@ -15,8 +15,11 @@ function* getCatImage() {
   yield put({ type: 'GET_CAT_IMAGE_SUCCESS', catImage: url})
 }
 
-function getFoodImages() {
-    
+function* increaseHunger() {
+}
+
+function getFoods() {
+    //list of available foods from api
 }
 
 export default function* rootSaga() {
