@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+// import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Cat from '../../components/Cat/Cat'
 import Room from '../../components/Room/Room'
@@ -11,6 +11,7 @@ class GameViewComponent extends Component {
   componentDidMount() {
     this.props.requestCatImage()
     setInterval(this.props.increaseHunger, 10000)
+    setInterval(this.props.increaseAwakness, 20000)
   }
 
   render() {
@@ -35,7 +36,6 @@ class GameViewComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
-  console.log(state)
   return {
     catUrl: state.catImage.catImage,
     catName: state.catImage.catName,

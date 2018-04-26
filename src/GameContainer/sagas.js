@@ -1,5 +1,5 @@
 import { call, put, takeEvery, select } from 'redux-saga/effects'
-import { delay } from 'redux-saga'
+// import { delay } from 'redux-saga'
 import convert from 'xml-js';
 import { getCatNeeds } from './reducers'
 
@@ -13,7 +13,6 @@ function* increaseHunger() {
 }
 
 function* getCatImage() {
-  console.log('sagaGET_CAT_IMAGE')
   const response = yield call(getCatImageApi)
   const dataXml = yield response.text()
   const data2json = JSON.parse(convert.xml2json(dataXml, { compact: true }))
@@ -24,9 +23,9 @@ function* getCatImage() {
 }
 
 
-function getFoods() {
-    //list of available foods from api
-}
+// function getFoods() {
+//     //list of available foods from api
+// }
 
 export default function* rootSaga() {
   yield takeEvery('INCREASE_HUNGER', increaseHunger)
