@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { getCatImage } from './GameView.actions'
 import Cat from '../../components/Cat/Cat'
 import Room from '../../components/Room/Room'
 import Scale from '../../components/Scale/Scale'
 import styles from './GameView.module.scss'
+import { getCatImage, increaseHunger } from './GameView.actions'
 
 class GameViewComponent extends Component {
   componentDidMount() {
     this.props.requestCatImage()
+    setInterval(this.props.increaseHunger, 10000)
   }
 
   render() {
@@ -34,16 +35,18 @@ class GameViewComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
+  console.log(state)
   return {
-    catUrl: state.setCatImage.catImage,
-    catName: state.setCatImage.catName,
-    kitchen: state.setCatImage.catNeeds.kitchen,
-    bedroom: state.setCatImage.catNeeds.bedroom,
+    catUrl: state.catImage.catImage,
+    catName: state.catImage.catName,
+    kitchen: state.catNeeds.kitchen,
+    bedroom: state.catNeeds.bedroom,
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
-  requestCatImage: () => dispatch(getCatImage())
+  requestCatImage: () => dispatch(getCatImage()),
+  increaseHunger: () => dispatch(increaseHunger())
 })
 
 const GameView = connect(
