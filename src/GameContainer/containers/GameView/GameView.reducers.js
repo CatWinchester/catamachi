@@ -1,4 +1,4 @@
-import {GET_CAT_IMAGE_SUCCESS, GET_CAT_IMAGE_FAILURE, SET_HUNGER} from './GameView.actions'
+import {GET_CAT_IMAGE_SUCCESS, GET_CAT_IMAGE_FAILURE, SET_HUNGER, SET_FOOD} from './GameView.actions'
 
 import catNames from 'cat-names'
 
@@ -8,18 +8,11 @@ const initialState = {
   catNeeds: {
     kitchen: {
       hunger: 50,
-      avialableFood: [
-        {
-          name: 'tomato',
-          amount: 4
-        }, {
-          name: 'bacon',
-          amount: 1
-        }, {
-          name: 'chicken',
-          amount: 2
-        }
-      ]
+      avialableFood: {
+        tomato: 4,
+        bacon: 1,
+        chicken: 2
+      }
     },
     bedroom: {
       awakeness: 30
@@ -52,6 +45,15 @@ export function catNeeds(state = initialState.catNeeds, action) {
         }
       }
     }
+      case SET_FOOD:{
+        return {
+          ...state,
+          kitchen: {
+            hunger: state.kitchen.hunger,
+            avialableFood:action.food
+          }
+        }
+      }
     default:
       return state
   }

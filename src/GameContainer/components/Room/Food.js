@@ -4,7 +4,7 @@ import styles from './Room.module.scss'
 import {Animated} from "react-animated-css"
 
 const Food = (props) => {
-  const { type } = props;
+  const { type, onClick } = props;
 
   const URL = `https://www.themealdb.com/images/ingredients/${type}.png`
   return (
@@ -14,15 +14,19 @@ const Food = (props) => {
       animationOut="fadeIn"
       isVisible={true}
     >
-      <div className={styles.food}>
+      <a onClick={ (e)=>{
+        e.preventDefault
+        onClick()
+      } } className={styles.food}>
         <img src={URL} alt='food-item'/>
-      </div>
+      </a>
     </Animated>
   )
 }
 
 Food.propTypes = {
-  type: PropTypes.string.isRequired
+  type: PropTypes.string.isRequired,
+  onClick: PropTypes.func.isRequired
 }
 
 export default Food

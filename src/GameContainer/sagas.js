@@ -12,6 +12,14 @@ function* increaseHunger() {
   yield put({ type: 'SET_HUNGER', hunger: kn.hunger-1})
 }
 
+function* decreaseHunger({name}) {
+  const kn = yield select(getCatNeeds)
+  let food = kn.avialableFood;
+  food[name] = food[name]-1;
+  yield put({ type: 'SET_FOOD', food})
+  yield put({ type: 'SET_HUNGER', hunger: kn.hunger+1})
+}
+
 function* getCatImage() {
   const response = yield call(getCatImageApi)
   const dataXml = yield response.text()
@@ -29,5 +37,6 @@ function* getCatImage() {
 
 export default function* rootSaga() {
   yield takeEvery('INCREASE_HUNGER', increaseHunger)
+  yield takeEvery('DECREASE_HUNGER', decreaseHunger)
   yield takeEvery('GET_CAT_IMAGE', getCatImage)
 }

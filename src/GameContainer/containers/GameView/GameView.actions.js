@@ -2,7 +2,9 @@ export const GET_CAT_IMAGE = 'GET_CAT_IMAGE'
 export const GET_CAT_IMAGE_SUCCESS = 'GET_CAT_IMAGE_SUCCESS'
 export const GET_CAT_IMAGE_FAILURE = 'GET_CAT_IMAGE_FAILURE'
 export const INCREASE_HUNGER = 'INCREASE_HUNGER'
+export const DECREASE_HUNGER = 'DECREASE_HUNGER'
 export const SET_HUNGER = 'SET_HUNGER'
+export const SET_FOOD = 'SET_FOOD'
 
 export function getCatImage() {
   return {
@@ -20,5 +22,12 @@ export function getCatImageSuccess(image) {
 export function increaseHunger() {
   return {
     type: INCREASE_HUNGER
+  }
+}
+
+export function decreaseHunger(foodName) {
+  return {
+    type: DECREASE_HUNGER,
+    name: foodName
   }
 }

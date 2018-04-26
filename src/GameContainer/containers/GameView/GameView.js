@@ -5,7 +5,7 @@ import Cat from '../../components/Cat/Cat'
 import Room from '../../components/Room/Room'
 import Scale from '../../components/Scale/Scale'
 import styles from './GameView.module.scss'
-import { getCatImage, increaseHunger } from './GameView.actions'
+import { getCatImage, increaseHunger, decreaseHunger } from './GameView.actions'
 
 class GameViewComponent extends Component {
   componentDidMount() {
@@ -15,12 +15,16 @@ class GameViewComponent extends Component {
   }
 
   render() {
-    const { catUrl, kitchen, bedroom, catName } = this.props;
+    const { catUrl, kitchen, bedroom, catName,  decreaseHunger} = this.props;
 
     return (
       <div className={styles.gameview}>
         <div className={styles.house}>
-          <Room type="kitchen" food={kitchen.avialableFood}/>
+          <Room
+            type="kitchen"
+            food={kitchen.avialableFood}
+            onFoodClick={decreaseHunger}
+          />
           <Room type="bedroom" />
         </div>
 
@@ -46,7 +50,8 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => ({
   requestCatImage: () => dispatch(getCatImage()),
-  increaseHunger: () => dispatch(increaseHunger())
+  increaseHunger: () => dispatch(increaseHunger()),
+  decreaseHunger: (foodName) => dispatch(decreaseHunger(foodName))
 })
 
 const GameView = connect(
