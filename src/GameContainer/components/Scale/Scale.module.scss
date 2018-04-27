@@ -1,4 +1,16 @@
 .scale {
-  width: 200px;
-  height: 200px;
+  display: inline-flex;
+  flex: 1;
+  flex-direction: column;
+  .points {
+    flex-wrap: wrap;
+    display: inline-flex;
+    flex-direction: row;
+    .point {
+      width:10px;
+      height:10px;
+      background: #f00;
+      border-radius: 50%;
+    }
+  }
 }

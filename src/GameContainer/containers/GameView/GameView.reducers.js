@@ -7,7 +7,7 @@ const initialState = {
   catName: catNames.random(),
   catNeeds: {
     kitchen: {
-      hunger: 50,
+      hunger: 60,
       avialableFood: {
         tomato: 4,
         bacon: 1,

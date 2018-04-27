@@ -10,14 +10,15 @@ const Food = (props) => {
   return (
     <Animated
       animationIn="fadeInDown"
+      animationOut="zoomOut"
       animationInDelay={Math.random()*1500}
-      animationOut="fadeIn"
+      animationOutDelay={Math.random()*1500}
       isVisible={true}
     >
-      <a onClick={ (e)=>{
-        e.preventDefault
+      <a onClick={(e)=>{
+        e.preventDefault()
         onClick()
-      } } className={styles.food}>
+      }} className={styles.food}>
         <img src={URL} alt='food-item'/>
       </a>
     </Animated>

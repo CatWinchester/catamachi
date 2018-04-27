@@ -17,14 +17,13 @@ function* decreaseHunger({name}) {
   let food = kn.avialableFood;
   food[name] = food[name]-1;
   yield put({ type: 'SET_FOOD', food})
-  yield put({ type: 'SET_HUNGER', hunger: kn.hunger+1})
+  yield put({ type: 'SET_HUNGER', hunger: kn.hunger + 3})
 }
 
 function* getCatImage() {
   const response = yield call(getCatImageApi)
   const dataXml = yield response.text()
   const data2json = JSON.parse(convert.xml2json(dataXml, { compact: true }))
-
   const url = data2json.response.data.images.image.url._text
 
   yield put({ type: 'GET_CAT_IMAGE_SUCCESS', catImage: url})

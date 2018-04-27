@@ -16,7 +16,6 @@ class GameViewComponent extends Component {
 
   render() {
     const { catUrl, kitchen, bedroom, catName,  decreaseHunger} = this.props;
-
     return (
       <div className={styles.gameview}>
         <div className={styles.house}>

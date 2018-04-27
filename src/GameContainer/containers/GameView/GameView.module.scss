@@ -1,5 +1,5 @@
 *{
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 .gameview {
   display: grid;
@@ -8,5 +8,7 @@
 .house,
 .scales {
   display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
   justify-content: center;
 }
