@@ -4,7 +4,9 @@ import convert from 'xml-js';
 import { getCatNeeds } from './reducers'
 
 function getCatImageApi () {
-  return fetch('http://thecatapi.com/api/images/get?format=xml&results_per_page=1')
+  return fetch(
+    'http://thecatapi.com/api/images/get?format=xml&results_per_page=1'
+  )
 }
 
 function* increaseHunger() {
@@ -21,18 +23,17 @@ function* decreaseHunger({name}) {
 }
 
 function* getCatImage() {
-  const response = yield call(getCatImageApi)
-  const dataXml = yield response.text()
-  const data2json = JSON.parse(convert.xml2json(dataXml, { compact: true }))
-  const url = data2json.response.data.images.image.url._text
-
-  yield put({ type: 'GET_CAT_IMAGE_SUCCESS', catImage: url})
+  try {
+    const response = yield call(getCatImageApi)
+    const dataXml = yield response.text()
+    const data2json = JSON.parse(convert.xml2json(dataXml, { compact: true }))
+    const url = data2json.response.data.images.image.url._text
+    yield put({ type: 'GET_CAT_IMAGE_SUCCESS', catImage: url})
+  } catch(err) {
+    console.log('GET_CAT_IMAGE_FAILURE', err)
+    yield put({ type: 'GET_CAT_IMAGE_FAILURE', err: err})
+  }
 }
-
-
-// function getFoods() {
-//     //list of available foods from api
-// }
 
 export default function* rootSaga() {
   yield takeEvery('INCREASE_HUNGER', increaseHunger)

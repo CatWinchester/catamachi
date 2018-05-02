@@ -1,15 +1,14 @@
 .room {
-  width: 400px;
-  height: 300px;
-  background-size: auto 100%;
+  flex:1 1;
+  min-height: 60vw;
+  background-size: 100% 100%;
   background-repeat: no-repeat;
   display: grid;
+  grid-template-columns: 50% 50%;
 }
 
 .kitchen {
-  // display: inline-flex;
   background-image: url('http://www.johnmoylesbuilder.com/uploads/2/9/4/5/2945280/4915026.jpg?880');
-  // justify-content: end;
 }
 
 .bedroom {
@@ -30,4 +29,21 @@
   &>img{
     width:100%;
   }
+}
+
+.wall {
+  width: auto;
+}
+.wall__east {
+  background: #f00;
+  transform: skewY(-10deg) translateY(37px);
+}
+.wall__west {
+  background: #ff0;
+  transform: skewY(10deg) translateY(37px);
+}
+.floor {
+  background: #f0f;
+  grid-column-start: 1;
+  grid-column-end: last;
 }

@@ -5,7 +5,7 @@ import Cat from '../../components/Cat/Cat'
 import Room from '../../components/Room/Room'
 import Scale from '../../components/Scale/Scale'
 import styles from './GameView.module.scss'
-import { getCatImage, increaseHunger, decreaseHunger } from './GameView.actions'
+import { getCatImage, increaseHunger, decreaseHunger, selectRoom } from './GameView.actions'
 
 class GameViewComponent extends Component {
   componentDidMount() {
@@ -15,19 +15,35 @@ class GameViewComponent extends Component {
   }
 
   render() {
-    const { catUrl, kitchen, bedroom, catName,  decreaseHunger} = this.props;
+    const { catUrl, kitchen, bedroom, catName, decreaseHunger, currRoom, handleSelectRoom} = this.props;
     return (
+
       <div className={styles.gameview}>
+
+        <div className="toolbar">
+          <button className="button button--stats" onClick={()=>handleSelectRoom('stats')}>
+            Stats
+          </button>
+          <button className="button button--kitchen" onClick={()=>handleSelectRoom('kitchen')}>
+            Kitchen
+          </button>
+          <button className="button button--bedroom" onClick={()=>handleSelectRoom('bedroom')}>
+            bedroom
+          </button>
+          <button className="button button--playroom" onClick={()=>handleSelectRoom('playroom')}>
+            playroom
+          </button>
+        </div>
+
         <div className={styles.house}>
           <Room
-            type="kitchen"
+            type={currRoom}
             food={kitchen.avialableFood}
             onFoodClick={decreaseHunger}
           />
-          <Room type="bedroom" />
-        </div>
 
-        <Cat imageUrl={catUrl} name={catName}/>
+          <Cat imageUrl={catUrl} name={catName}/>
+        </div>
 
         <div className={styles.scales}>
           <Scale type="hunger" amount={kitchen.hunger}/>
@@ -44,13 +60,15 @@ const mapStateToProps = (state) => {
     catName: state.catImage.catName,
     kitchen: state.catNeeds.kitchen,
     bedroom: state.catNeeds.bedroom,
+    currRoom: state.catImage.selectedRoom,
   }
 }
 
 const mapDispatchToProps = (dispatch) => ({
   requestCatImage: () => dispatch(getCatImage()),
   increaseHunger: () => dispatch(increaseHunger()),
-  decreaseHunger: (foodName) => dispatch(decreaseHunger(foodName))
+  decreaseHunger: (foodName) => dispatch(decreaseHunger(foodName)),
+  handleSelectRoom: (name) => dispatch(selectRoom(name))
 })
 
 const GameView = connect(

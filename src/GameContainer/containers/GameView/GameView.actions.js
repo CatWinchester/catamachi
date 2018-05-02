@@ -5,6 +5,7 @@ export const INCREASE_HUNGER = 'INCREASE_HUNGER'
 export const DECREASE_HUNGER = 'DECREASE_HUNGER'
 export const SET_HUNGER = 'SET_HUNGER'
 export const SET_FOOD = 'SET_FOOD'
+export const SELECT_ROOM = 'SELECT_ROOM'
 
 export function getCatImage() {
   return {
@@ -29,5 +30,11 @@ export function decreaseHunger(foodName) {
   return {
     type: DECREASE_HUNGER,
     name: foodName
+  }
+}
+export function selectRoom(name) {
+  return {
+    type: SELECT_ROOM,
+    name: name
   }
 }

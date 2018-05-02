@@ -11,8 +11,8 @@ const Food = (props) => {
     <Animated
       animationIn="fadeInDown"
       animationOut="zoomOut"
-      animationInDelay={Math.random()*1500}
-      animationOutDelay={Math.random()*1500}
+      animationInDelay={Math.random()*1000}
+      animationOutDelay={Math.random()*1000}
       isVisible={true}
     >
       <a onClick={(e)=>{

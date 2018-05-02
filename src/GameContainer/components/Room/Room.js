@@ -23,6 +23,9 @@ const Kitchen = ({food, onFoodClick}) => {
 const Room = ( { type, food, onFoodClick } ) => {
   return <div className={`${styles.room} ${styles[type]}`}>
     {type==='kitchen' && <Kitchen food={food} onFoodClick={onFoodClick}/>}
+    {/* <div className={`${styles.wall} ${styles.wall__east}`}>East</div>
+    <div className={`${styles.wall} ${styles.wall__west}`}>West</div>
+    <div className={`${styles.wall} ${styles.floor}`}>Floor</div> */}
   </div>
 }
 

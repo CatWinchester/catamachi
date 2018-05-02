@@ -12,3 +12,7 @@ export default rootReducer
 export const getCatNeeds = (state) =>{
   return fromCatGame.getCatNeeds(state.catNeeds.kitchen)
 }
+
+export const getSelectedRoom = (state) =>{
+  return fromCatGame.getSelectedRoom(state.selectedRooms)
+}
