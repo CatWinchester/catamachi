@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className={undefined}
+>
+  <h2>
+    hunger
+  </h2>
+  <h3>
+    3
+    %
+  </h3>
+  <div
+    className={undefined}
+  >
+     
+    <div
+      className={undefined}
+    />
+    <div
+      className={undefined}
+    />
+    <div
+      className={undefined}
+    />
+     
+  </div>
+</div>
+`;

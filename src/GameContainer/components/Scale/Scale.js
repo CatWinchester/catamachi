@@ -19,7 +19,8 @@ const Scale = (props) => {
 }
 
 Scale.propTypes = {
-  type: PropTypes.oneOf(['hunger', 'awakeness']).isRequired
+  type: PropTypes.oneOf(['hunger', 'awakeness']).isRequired,
+  amount: PropTypes.number.isRequired
 }
 
 export default Scale

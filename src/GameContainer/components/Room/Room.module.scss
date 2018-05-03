@@ -1,14 +1,30 @@
 .room {
   flex:1 1;
-  min-height: 60vw;
+  height: 68vh;
   background-size: 100% 100%;
   background-repeat: no-repeat;
   display: grid;
-  grid-template-columns: 50% 50%;
+  grid-template-rows: auto 60px;
+}
+
+.wall {
+  display: flex;
+  width: auto;
+  justify-content: center;
+  align-items: flex-end;
+
+}
+.floor {
+  background: url('./floor.png') no-repeat;
+  background-position: center -5vh;
+  background-size: 100% 10vh;
+  background-repeat: no-repeat;
 }
 
 .kitchen {
-  background-image: url('http://www.johnmoylesbuilder.com/uploads/2/9/4/5/2945280/4915026.jpg?880');
+  background-image: url(
+    'https://vignette.wikia.nocookie.net/adventuretimeultra/images/e/e9/Pastel_Dots_Wallpaper.png/revision/latest?cb=20131129215804'
+  );
 }
 
 .bedroom {
@@ -18,32 +34,24 @@
 }
 
 .refrigirator {
-  display: flex;
-  justify-content: center;
-  align-self: flex-end;
+  display: inline-grid;
+  background-image: url( './refrigerator.png');
+  background-position: center;
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+  grid-template-columns: 40px 40px 40px;
+  grid-auto-rows: 40px;
+  grid-row-gap: 26px;
+  width: 380px;
+  height: 500px;
+  padding: 150px 60px;
 }
 
 .food {
   max-width:40px;
+  min-width: 20px;
   display: block;
   &>img{
     width:100%;
   }
-}
-
-.wall {
-  width: auto;
-}
-.wall__east {
-  background: #f00;
-  transform: skewY(-10deg) translateY(37px);
-}
-.wall__west {
-  background: #ff0;
-  transform: skewY(10deg) translateY(37px);
-}
-.floor {
-  background: #f0f;
-  grid-column-start: 1;
-  grid-column-end: last;
 }

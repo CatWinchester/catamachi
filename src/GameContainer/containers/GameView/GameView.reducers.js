@@ -11,7 +11,7 @@ import catNames from 'cat-names'
 const initialState = {
   catImage: "",
   catName: catNames.random(),
-  selectedRoom:'bedroom',
+  selectedRoom:'kitchen',
   catNeeds: {
     kitchen: {
       hunger: 60,
@@ -61,15 +61,15 @@ export function catNeeds(state = initialState.catNeeds, action) {
         }
       }
     }
-      case SET_FOOD:{
-        return {
-          ...state,
-          kitchen: {
-            hunger: state.kitchen.hunger,
-            avialableFood:action.food
-          }
+    case SET_FOOD:{
+      return {
+        ...state,
+        kitchen: {
+          hunger: state.kitchen.hunger,
+          avialableFood:action.food
         }
       }
+    }
     default:
       return state
   }

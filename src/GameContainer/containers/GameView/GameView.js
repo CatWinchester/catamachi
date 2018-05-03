@@ -31,7 +31,7 @@ class GameViewComponent extends Component {
             bedroom
           </button>
           <button className="button button--playroom" onClick={()=>handleSelectRoom('playroom')}>
-            playroom
+            Playroom
           </button>
         </div>
 
@@ -42,13 +42,13 @@ class GameViewComponent extends Component {
             onFoodClick={decreaseHunger}
           />
 
-          <Cat imageUrl={catUrl} name={catName}/>
         </div>
 
-        <div className={styles.scales}>
+        <Cat imageUrl={catUrl} name={catName}/>
+        {false && <div className={styles.scales}>
           <Scale type="hunger" amount={kitchen.hunger}/>
           <Scale type="awakeness" amount={bedroom.awakeness}/>
-        </div>
+        </div>}
       </div>
     );
   }
