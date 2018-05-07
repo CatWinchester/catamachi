@@ -28,14 +28,16 @@
 }
 
 .bedroom {
-  background-image: url(
-    'https://media.istockphoto.com/vectors/children-room-graphic-black-white-interior-sketch-illustration-vector-vector-id656884928'
-  );
+  background-image: url('./Bedroom/bedroom_wall.jpg');
+
+  .bed {
+
+  }
 }
 
 .refrigirator {
   display: inline-grid;
-  background-image: url( './refrigerator.png');
+  background-image: url( './Kitchen/refrigerator.png');
   background-position: center;
   background-size: 100% 100%;
   background-repeat: no-repeat;

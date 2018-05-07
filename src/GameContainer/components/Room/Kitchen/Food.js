@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from './Room.module.scss'
+import styles from '../Room.module.scss'
 import {Animated} from "react-animated-css"
 
 const Food = (props) => {
@@ -10,7 +10,7 @@ const Food = (props) => {
   return (
     <Animated
       animationIn="fadeInDown"
-      animationOut="zoomOut"
+      animationOut="zoomOutLeft"
       animationInDelay={Math.random()*1000}
       animationOutDelay={Math.random()*1000}
       isVisible={true}
