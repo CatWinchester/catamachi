@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Cat from '../../components/Cat/Cat'
 import Room from '../../components/Room/Room'
-import Scale from '../../components/Scale/Scale'
 import styles from './GameView.module.scss'
 import { getCatImage, increaseHunger, decreaseHunger, selectRoom } from './GameView.actions'
 
@@ -28,27 +27,28 @@ class GameViewComponent extends Component {
             Kitchen
           </button>
           <button className="button button--bedroom" onClick={()=>handleSelectRoom('bedroom')}>
-            bedroom
+            Bedroom
           </button>
           <button className="button button--playroom" onClick={()=>handleSelectRoom('playroom')}>
             Playroom
+          </button>
+          <button className="button button--playroom" onClick={()=>handleSelectRoom('work')}>
+            Work
           </button>
         </div>
 
         <div className={styles.house}>
           <Room
             type={currRoom}
-            food={kitchen.avialableFood}
+            kitchen={kitchen}
+            bedroom={bedroom}
             onFoodClick={decreaseHunger}
-          />
-
+          >
+            <Cat imageUrl={catUrl} name={catName}/>
+          </Room>
         </div>
 
-        <Cat imageUrl={catUrl} name={catName}/>
-        {false && <div className={styles.scales}>
-          <Scale type="hunger" amount={kitchen.hunger}/>
-          <Scale type="awakeness" amount={bedroom.awakeness}/>
-        </div>}
+
       </div>
     );
   }

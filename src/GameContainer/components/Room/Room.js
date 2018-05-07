@@ -3,36 +3,44 @@ import PropTypes from 'prop-types'
 import styles from './Room.module.scss'
 import Kitchen from './Kitchen/Kitchen'
 import Bedroom from './Bedroom/Bedroom'
+import Stats from './Stats/Stats'
 
-const Room = ( { type, food, onFoodClick } ) => {
+const Room = ( { type, kitchen, bedroom, onFoodClick, children} ) => {
   let selectedRoom = {};
 
   switch(type) {
     case 'kitchen': {
       selectedRoom = <Kitchen
-        food={food}
+        food={kitchen.avialableFood}
         onFoodClick={onFoodClick}
       />
-
       break;
     }
     case 'bedroom': {
       selectedRoom = <Bedroom />
+      break;
+    }
+    case 'stats': {
+      selectedRoom = <Stats
+        awakeness={bedroom.awakeness}
+        hunger={kitchen.hunger}
+      />
     }
   }
 
   return <div className={`${styles.room} ${styles[type]}`}>
     <div className={styles.wall}>
       {selectedRoom}
+      {children}
     </div>
     <div className={styles.floor}></div>
   </div>
 }
 
 Room.propTypes = {
-  type: PropTypes.oneOf(['kitchen', 'bedroom']).isRequired,
-  food: PropTypes.object,
-  onFoodClick: PropTypes.func
+  type: PropTypes.oneOf(['kitchen', 'bedroom', 'stats']).isRequired,
+  kitchen: PropTypes.object,
+  onFoodClick: PropTypes.func,
 }
 
 export default Room
