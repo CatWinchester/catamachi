@@ -31,7 +31,11 @@
   background-image: url('./Bedroom/bedroom_wall.jpg');
 
   .bed {
-
+    max-width: 50vw;
+    img {
+      display: inline-block;
+      width: 100%;
+    }
   }
 }
 
