@@ -5,7 +5,7 @@ import Kitchen from './Kitchen/Kitchen'
 import Bedroom from './Bedroom/Bedroom'
 import Stats from './Stats/Stats'
 
-const Room = ( { type, kitchen, bedroom, onFoodClick, children} ) => {
+const Room = ( { type, kitchen, bedroom, onFoodClick, children } ) => {
   let selectedRoom = {};
 
   switch(type) {
