@@ -6,50 +6,63 @@ import Room from '../../components/Room/Room'
 import styles from './GameView.module.scss'
 import { getCatImage, increaseHunger, decreaseHunger, selectRoom } from './GameView.actions'
 
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+
 class GameViewComponent extends Component {
   componentDidMount() {
     this.props.requestCatImage()
     setInterval(this.props.increaseHunger, 10000)
     setInterval(this.props.increaseAwakness, 20000)
   }
-
   render() {
     const { catUrl, kitchen, bedroom, catName, decreaseHunger, currRoom, handleSelectRoom} = this.props;
+
+    const _renderRooByPath = ({match, ...props}) => (
+      <Room
+        // type={currRoom}
+        type={match.path.slice(1) || 'kitchen' }
+        kitchen={kitchen}
+        bedroom={bedroom}
+        onFoodClick={decreaseHunger}
+      >
+        {/* <CatPortret imageUrl={catUrl} name={catName}/> */}
+        <Cat imageUrl={catUrl} name={catName}/>
+      </Room>
+    )
     return (
+      <Router>
+        <div className={styles.gameview}>
 
-      <div className={styles.gameview}>
+          <div className="toolbar">
+            <button onClick={()=>handleSelectRoom('stats')}>
+              Stats
+            </button>
 
-        <div className="toolbar">
-          <button className="button button--stats" onClick={()=>handleSelectRoom('stats')}>
-            Stats
-          </button>
-          <button className="button button--kitchen" onClick={()=>handleSelectRoom('kitchen')}>
-            Kitchen
-          </button>
-          <button className="button button--bedroom" onClick={()=>handleSelectRoom('bedroom')}>
-            Bedroom
-          </button>
-          <button className="button button--playroom" onClick={()=>handleSelectRoom('playroom')}>
-            Playroom
-          </button>
-          <button className="button button--playroom" onClick={()=>handleSelectRoom('work')}>
-            Work
-          </button>
+            <Link to='/kitchen'>
+              <button>
+                Kitchen
+              </button>
+           </Link>
+            <Link to='/bedroom'>
+              <button>
+                Bedroom
+              </button>
+            </Link>
+            <button onClick={()=>handleSelectRoom('playroom')}>
+              Playroom
+            </button>
+            <button onClick={()=>handleSelectRoom('work')}>
+              Work
+            </button>
+          </div>
+
+          <div className={styles.house}>
+            <Route exact path="/" render={_renderRooByPath} />
+            <Route path="/bedroom" render={_renderRooByPath} />
+            <Route path="/kitchen" render={_renderRooByPath} />
+          </div>
         </div>
-
-        <div className={styles.house}>
-          <Room
-            type={currRoom}
-            kitchen={kitchen}
-            bedroom={bedroom}
-            onFoodClick={decreaseHunger}
-          >
-            <Cat imageUrl={catUrl} name={catName}/>
-          </Room>
-        </div>
-
-
-      </div>
+      </Router>
     );
   }
 }

@@ -4,26 +4,26 @@
   background-size: 100% 100%;
   background-repeat: no-repeat;
   display: grid;
-  grid-template-rows: auto 60px;
+  grid-template-rows: auto 18vh;
 }
 
 .wall {
   display: flex;
   width: auto;
-  justify-content: center;
+  justify-content: space-around;
   align-items: flex-end;
 
 }
 .floor {
   background: url('./floor.png') no-repeat;
-  background-position: center -10vh;
-  background-size: 100% 250%;
+  background-position: center -18vh;
+  background-size: 100% 200%;
   background-repeat: no-repeat;
 }
 
 .kitchen {
   background-image: url(
-    'https://vignette.wikia.nocookie.net/adventuretimeultra/images/e/e9/Pastel_Dots_Wallpaper.png/revision/latest?cb=20131129215804'
+    './Kitchen/kitchen_wall.png'
   );
 }
 
@@ -51,8 +51,12 @@
   grid-auto-rows: 40px;
   grid-row-gap: 26px;
   width: 380px;
+  // width: 34.4vw;
   height: 500px;
+  // height: 56.8vh;
   padding: 150px 60px;
+  margin-bottom: -8vh;
+  z-index: 1000;
 }
 
 .food {
