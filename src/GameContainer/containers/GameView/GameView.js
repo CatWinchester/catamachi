@@ -25,7 +25,7 @@ class GameViewComponent extends Component {
         bedroom={bedroom}
         onFoodClick={decreaseHunger}
       >
-        {/* <CatPortret imageUrl={catUrl} name={catName}/> */}
+        {/* <CatPicture imageUrl={catUrl} name={catName}/> */}
         <Cat imageUrl={catUrl} name={catName}/>
       </Room>
     )

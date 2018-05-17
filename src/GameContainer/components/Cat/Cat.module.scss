@@ -7,20 +7,20 @@
   h1 {
     margin-bottom: 0;
   }
+  transform: scale(2);
 // 384 × 256 / 32px * 32px/ 12items*8i/ 1 cat zone 3items * 4
   .cat {
     background: url('./pixel_cats_sprites.png');
     background-repeat: no-repeat;
     width: 32px;
     height: 32px;
+    // transform: scale(5);
     animation: walkAnimLeft 0.8s steps(3) infinite,
                moveBothSides 5s steps(100) infinite alternate,
                turn 10s linear infinite;
-    background-position-x: 0;
     background-position-y: -64px;
     left:0;
     position: relative;
-    // transform: scale(5);
   }
 }
 
