@@ -3,6 +3,7 @@
   // height: 68vh;
   background-size: 100% 100%;
   background-repeat: no-repeat;
+  background-size: cover;
   display: grid;
   grid-template-rows: auto 18vh;
 }
@@ -22,9 +23,33 @@
 }
 
 .kitchen {
-  background-image: url(
-    './Kitchen/kitchen_wall.png'
-  );
+  background-image: url( './Kitchen/kitchen_wall.png');
+
+  .refrigirator {
+    display: inline-grid;
+    background-image: url(/static/media/refrigerator.13363e74.png);
+    background-position: left;
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    grid-template-columns: 5vh 5vh 5vh;
+    grid-auto-rows: 6vh;
+    grid-row-gap: 1vh;
+    max-width: 50%;
+    height: 57vh;
+    padding: 17vh 22vh 0 7vh;
+    margin-bottom: -8vh;
+    z-index: 1000;
+  }
+
+  .food {
+    height:5vh;
+    max-width:100%;
+    display: block;
+    &>img{
+      max-width: 100%;
+      max-height: 100%;
+    }
+  }
 }
 
 .bedroom {
@@ -32,37 +57,12 @@
 
   .bed {
     max-width: 50vw;
+    min-width: 30vh;
     img {
       display: inline-block;
       width: 100%;
       top: 40px;
       position: relative;
     }
-  }
-}
-
-.refrigirator {
-  display: inline-grid;
-  background-image: url(/static/media/refrigerator.13363e74.png);
-  background-position: left;
-  background-size: auto 100%;
-  background-repeat: no-repeat;
-  grid-template-columns: 5vh 5vh 5vh;
-  grid-auto-rows: 6vh;
-  grid-row-gap: 1vh;
-  max-width: 50%;
-  height: 57vh;
-  padding: 17vh 22vh 0 7vh;
-  margin-bottom: -8vh;
-  z-index: 1000;
-}
-
-.food {
-  height:5vh;
-  max-width:100%;
-  display: block;
-  &>img{
-    max-width: 100%;
-    max-height: 100%;
   }
 }

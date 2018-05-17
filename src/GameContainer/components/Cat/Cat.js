@@ -4,10 +4,9 @@ import styles from './Cat.module.scss'
 
 const Cat = (props) => {
   return <div className={styles.catContainer}>
-    <div className={styles.cat}>
+    <a className={styles.cat} alt={props.name}>
       {/* <img src={props.imageUrl} alt="Here should be cat"/> */}
-    </div>
-    {/* <h1>{props.name}</h1> */}
+    </a>
   </div>
 }
 

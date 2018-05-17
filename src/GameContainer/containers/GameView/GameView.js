@@ -15,11 +15,10 @@ class GameViewComponent extends Component {
     setInterval(this.props.increaseAwakness, 20000)
   }
   render() {
-    const { catUrl, kitchen, bedroom, catName, decreaseHunger, currRoom, handleSelectRoom} = this.props;
+    const { catUrl, kitchen, bedroom, catName, decreaseHunger, handleSelectRoom} = this.props;
 
     const _renderRooByPath = ({match, ...props}) => (
       <Room
-        // type={currRoom}
         type={match.path.slice(1) || 'kitchen' }
         kitchen={kitchen}
         bedroom={bedroom}
@@ -38,16 +37,9 @@ class GameViewComponent extends Component {
               Stats
             </button>
 
-            <Link to='/kitchen'>
-              <button>
-                Kitchen
-              </button>
-           </Link>
-            <Link to='/bedroom'>
-              <button>
-                Bedroom
-              </button>
-            </Link>
+            <Link to='/kitchen'><button> Kitchen </button></Link>
+            <Link to='/bedroom'><button> Bedroom </button></Link>
+
             <button onClick={()=>handleSelectRoom('playroom')}>
               Playroom
             </button>
@@ -72,8 +64,7 @@ const mapStateToProps = (state) => {
     catUrl: state.catImage.catImage,
     catName: state.catImage.catName,
     kitchen: state.catNeeds.kitchen,
-    bedroom: state.catNeeds.bedroom,
-    currRoom: state.catImage.selectedRoom,
+    bedroom: state.catNeeds.bedroom
   }
 }
 
