@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import styles from '../Room.module.scss'
+import styles from '../Room/Room.module.scss'
 import Scale from './Scale/Scale'
 
 const Stats = ({hunger, awakeness}) => {

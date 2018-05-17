@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import Cat from '../../components/Cat/Cat'
 import Room from '../../components/Room/Room'
+import Stats from '../../components/Stats/Stats'
 import styles from './GameView.module.scss'
 import { getCatImage, increaseHunger, decreaseHunger, selectRoom } from './GameView.actions'
 
@@ -24,7 +25,6 @@ class GameViewComponent extends Component {
         bedroom={bedroom}
         onFoodClick={decreaseHunger}
       >
-        {/* <CatPicture imageUrl={catUrl} name={catName}/> */}
         <Cat imageUrl={catUrl} name={catName}/>
       </Room>
     )
@@ -33,10 +33,7 @@ class GameViewComponent extends Component {
         <div className={styles.gameview}>
 
           <div className="toolbar">
-            <button onClick={()=>handleSelectRoom('stats')}>
-              Stats
-            </button>
-
+            <Link to='/stats'><button>Stats</button></Link>
             <Link to='/kitchen'><button> Kitchen </button></Link>
             <Link to='/bedroom'><button> Bedroom </button></Link>
 
@@ -52,6 +49,9 @@ class GameViewComponent extends Component {
             <Route exact path="/" render={_renderRooByPath} />
             <Route path="/bedroom" render={_renderRooByPath} />
             <Route path="/kitchen" render={_renderRooByPath} />
+            <Route path="/stats" render={()=>(
+              <Stats awakeness={bedroom.awakeness} hunger={kitchen.hunger}/>
+            )}/>
           </div>
         </div>
       </Router>

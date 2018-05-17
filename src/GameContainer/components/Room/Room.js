@@ -20,12 +20,12 @@ const Room = ( { type, kitchen, bedroom, onFoodClick, children } ) => {
       selectedRoom = <Bedroom />
       break;
     }
-    case 'stats': {
-      selectedRoom = <Stats
-        awakeness={bedroom.awakeness}
-        hunger={kitchen.hunger}
-      />
-    }
+    // case 'stats': {
+    //   selectedRoom = <Stats
+    //     awakeness={bedroom.awakeness}
+    //     hunger={kitchen.hunger}
+    //   />
+    // }
   }
 
   return <div className={`${styles.room} ${styles[type]}`}>
