@@ -6,6 +6,10 @@ export const DECREASE_HUNGER = 'DECREASE_HUNGER'
 export const SET_HUNGER = 'SET_HUNGER'
 export const SET_FOOD = 'SET_FOOD'
 export const SELECT_ROOM = 'SELECT_ROOM'
+export const SET_CLICKER = 'SET_CLICKER'
+export const INCREASE_CLICKER = 'INCREASE_CLICKER'
+export const RESET_CLICKER = 'RESET_CLICKER'
+
 
 export function getCatImage() {
   return {
@@ -36,5 +40,17 @@ export function selectRoom(name) {
   return {
     type: SELECT_ROOM,
     name: name
+  }
+}
+
+export function increaseClicker() {
+  return {
+    type: INCREASE_CLICKER
+  }
+}
+
+export function resetClicker() {
+  return {
+    type: RESET_CLICKER
   }
 }

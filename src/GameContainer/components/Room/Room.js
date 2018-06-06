@@ -3,7 +3,6 @@ import PropTypes from 'prop-types'
 import styles from './Room.module.scss'
 import Kitchen from './Kitchen/Kitchen'
 import Bedroom from './Bedroom/Bedroom'
-import Stats from './Stats/Stats'
 
 const Room = ( { type, kitchen, bedroom, onFoodClick, children } ) => {
   let selectedRoom = {};
@@ -20,12 +19,6 @@ const Room = ( { type, kitchen, bedroom, onFoodClick, children } ) => {
       selectedRoom = <Bedroom />
       break;
     }
-    // case 'stats': {
-    //   selectedRoom = <Stats
-    //     awakeness={bedroom.awakeness}
-    //     hunger={kitchen.hunger}
-    //   />
-    // }
   }
 
   return <div className={`${styles.room} ${styles[type]}`}>

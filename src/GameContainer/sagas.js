@@ -1,7 +1,7 @@
 import { call, put, takeEvery, select } from 'redux-saga/effects'
 // import { delay } from 'redux-saga'
 import convert from 'xml-js';
-import { getCatNeeds } from './reducers'
+import { getCatNeeds, getClicksNumber } from './reducers'
 
 function getCatImageApi () {
   return fetch(
@@ -35,8 +35,15 @@ function* getCatImage() {
   }
 }
 
+function* increaseClicker() {
+  // const kn = yield select(getCatNeeds)
+  const clickedTimes = yield select(getClicksNumber)
+  yield put({ type: 'SET_CLICKER', clickedTimes: clickedTimes + 1 })
+}
+
 export default function* rootSaga() {
   yield takeEvery('INCREASE_HUNGER', increaseHunger)
   yield takeEvery('DECREASE_HUNGER', decreaseHunger)
   yield takeEvery('GET_CAT_IMAGE', getCatImage)
+  yield takeEvery('INCREASE_CLICKER', increaseClicker)
 }

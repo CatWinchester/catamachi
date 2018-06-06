@@ -3,7 +3,9 @@ import {
   GET_CAT_IMAGE_FAILURE,
   SELECT_ROOM,
   SET_HUNGER,
-  SET_FOOD
+  SET_FOOD,
+  SET_CLICKER,
+  RESET_CLICKER
 } from './GameView.actions'
 
 import catNames from 'cat-names'
@@ -19,11 +21,29 @@ const initialState = {
         tomato: 4,
         bacon: 1,
         chicken: 2
-      }
+      },
+      items:[
+        {
+          type: 'refrigirator',
+          space: 10,
+          imageUrl:'???'
+        }
+      ]
     },
     bedroom: {
-      awakeness: 30
-    }
+      awakeness: 30,
+      items:[
+        {
+          type: 'bed',
+          fastCharge: 10,
+          imageUrl:'???'
+        }
+      ]
+    },
+    money: 1000,
+  },
+  work: {
+    clickedTimes:0
   }
 }
 
@@ -75,5 +95,23 @@ export function catNeeds(state = initialState.catNeeds, action) {
   }
 }
 
+export function catWork(state = initialState.work, action){
+  switch (action.type) {
+    case SET_CLICKER:
+      return {
+        ...state,
+        clickedTimes: action.clickedTimes
+      }
+    case RESET_CLICKER:
+      return {
+        ...state,
+        clickedTimes: 0
+      }
+    default:
+      return state
+  }
+}
+
 export const getSelectedRoom = (state) => state
 export const getCatNeeds = (state) => state
+export const getClicksNumber = (state) => state

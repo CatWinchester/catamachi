@@ -1,0 +1,10 @@
+.big_red_button {
+  background: #f00;
+  border-radius: 50%;
+  width:200px;
+  height:200px;
+  color:#fff;
+  font-size: 14px;
+
+  &:focus {outline: none}
+}
